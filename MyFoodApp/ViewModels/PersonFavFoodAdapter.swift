@@ -7,6 +7,7 @@
 
 import UIKit
 
+// A tableView's Adapter/ DataSource for showing
 class PersonFavFoodAdapter: NSObject {
     
     var favFoodList = [FavFoodSectionType]() {
@@ -15,23 +16,27 @@ class PersonFavFoodAdapter: NSObject {
         }
     }
     
-    
     func updateList(favFoodList: [FavFoodSectionType]) {
         self.favFoodList = favFoodList
     }
     
 }
 
+
+// MARK:- UITableViewDataSource
 extension PersonFavFoodAdapter: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        // return total section
         self.favFoodList.count
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         switch (self.favFoodList[section]) {
-        case .section(sectionTitle: _, favFoodList: let personFavFoods):
+        case .section(sectionTitle: _, personFavFoodList: let personFavFoods):
+            
             return personFavFoods.count
         }
     }
@@ -41,11 +46,11 @@ extension PersonFavFoodAdapter: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: PersonFoodTableViewCell.id) as! PersonFoodTableViewCell
         
         switch (self.favFoodList[indexPath.section]) {
-        case .section(sectionTitle: _, favFoodList: let list):
+        case .section(sectionTitle: _, personFavFoodList: let list):
            
             let person = list[indexPath.row]
-            //person.address
             cell.setupData(personFoodInf: person)
+            // return cell
             return cell
             
        
@@ -55,7 +60,9 @@ extension PersonFavFoodAdapter: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch (self.favFoodList[section]) {
-        case .section(sectionTitle: let sectionTitle, favFoodList: _):
+        
+        case .section(sectionTitle: let sectionTitle, personFavFoodList: _):
+            // return section title
             return sectionTitle
         }
     }

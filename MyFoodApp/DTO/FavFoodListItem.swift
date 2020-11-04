@@ -7,12 +7,13 @@
 
 import Foundation
 
+/**Single Food Item Model */
 struct FoodItem {
     let name: String
     let image: String
 }
 
-
+/** Person Item with Favorite food list*/
 struct PersonFavFoodItem {
     let name: String
     let address: String
@@ -20,6 +21,7 @@ struct PersonFavFoodItem {
     let favFoods: [FoodItem]
 }
 
+/**Section Item with Person Favorite food list  */
 struct FavFoodListItem {
     let sectionTitle: String
     let personFavFoodList: [PersonFavFoodItem]

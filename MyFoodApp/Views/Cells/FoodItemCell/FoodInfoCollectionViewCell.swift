@@ -9,7 +9,10 @@ import UIKit
 
 class FoodInfoCollectionViewCell: UICollectionViewCell, CellInfoProtocol {
 
+    // Food NameLabel
     @IBOutlet weak var foodNameLabel: UILabel!
+    
+    // Food ImageView
     @IBOutlet weak var foodImageView: UIImageView!
     
     override func awakeFromNib() {

@@ -7,11 +7,12 @@
 
 import UIKit
 
+// Adapter/ DataSource  for showing Horizontal FoodList
 class FavFoodAdapter: NSObject {
     
     var favFoodList = [FoodItem]() {
         didSet {
-            
+            // notify view if needed
         }
     }
     
