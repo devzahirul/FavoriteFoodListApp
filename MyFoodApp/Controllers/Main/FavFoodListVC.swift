@@ -23,7 +23,7 @@ class FavFoodListVC: UIViewController {
     // Style for current view
     private struct Style {
         // TableView cell height
-        static let tableViewCellHeight: CGFloat = 400
+        static let tableViewCellHeight: CGFloat = 320
     }
     
     
